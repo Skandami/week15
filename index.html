@@ -51,7 +51,7 @@ const minTemperature = document.getElementById('minTemperature');
 
 function isValidTemperature(temp){
    
-    return temp.trim()!==''&& temp !== null && !isNaN(temp)
+    return temp !== null && temp.trim()!=='' && !isNaN(temp)
 }
 
 for (const city of cities) {
@@ -59,20 +59,18 @@ for (const city of cities) {
    
     if (!isValidTemperature(temperature)) {
         alert('Температура введена неверно! Попробуйте еще раз!');
-        break
+        continue
     } else {
     temperatures.push(Number(temperature));
     console.log(temperatures);
     }
 
-    maxTemp = Math.max(...temperatures);
-    minTemp = Math.min(...temperatures);
-
     const listItem = document.createElement('p');
     listItem.textContent = `${city}: ${temperature} С°`;
     weather.appendChild(listItem);
 }
-
+  maxTemp = Math.max(...temperatures);
+    minTemp = Math.min(...temperatures);
 maxTemperature.textContent = `Максимальная температура: ${maxTemp} С°`;
 minTemperature.textContent = `Минимальная температура: ${minTemp} С°`;
     </script>

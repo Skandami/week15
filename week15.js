@@ -26,8 +26,12 @@ let x = 0;
 while (x <= 1) {
     x++;
     console.log(x * 5);
-}
+}                            // исправлено
 
+for (let f = 5; f <= 5; f++){  
+for (let i = 1; i <=10; i++)  
+console.log(i + "*" + f + "=" +(i*f)); 
+} 
 //Задание 5
 // Вычислить сумму чисел от 1 до 100 и вывести значение в консоль
   let sum = 0;
@@ -100,11 +104,16 @@ for (let sentence of sentences) {
 //Задание 12
 // Выведите сумму всех элементов массива используя цикл for..of. Массив numbers объявлен в Задании 7
 
-let sumOf = 0;
-for (let e of numbers) { 
-    sumOf += e;                                                                                                                                                                                                                                                                                                                           
-    console.log(sumOf);
+function sumOf(numbers) {
+  let sum = 0; 
+  // проходит по массиву и добавляет каждую цифру
+  for (let item of numbers) {
+    sum += item;
+  }
+ // возврат результата
+  return sum;
 }
+console.log(sumOf(numbers));
 //Задание 13
 // Выведите длину каждого слова из массива строк в консоль
 const list = ['apple', 'banana', 'cherry'];
@@ -168,18 +177,17 @@ while (countOne >= 1) {
 // Проверьте, все ли элементы массива являются положительными числами используя цикл while
 // Подсказка: используйте директиву break
 const allNumbers = [1, 2, 3, -4, 5];
+let n = 0;
 let allPositive = true;
-let n=0;
 
 while (n < allNumbers.length) {
-   allPositive = true;
-   if (allNumbers[n]<=0) {
-      allPositive = false;
-       console.log(allPositive);
-       break;
-    }
-     n++;
- };
+   if (allNumbers[n] <= 0) {
+      allPositive = false; // Устанавливаем переменную в false внутри цикла
+      break;
+   }
+   n++;
+}
+console.log(allPositive); // Выводим результат
 
 //Задание 20
 // Выведите значения элементов массива до первого отрицательного числа используя цикл do...while
